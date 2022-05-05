@@ -8,7 +8,11 @@ import Overlay from "../modal/Overlay";
 const Header = (props) => {
   const { jwt, setJwt, isLoggedIb, setLoggedIn } = useAppContext();
   const [modalState, setModalState] = useState(false);
-  useEffect(() => {}, [isLoggedIb]);
+
+
+  useEffect(() => {
+    console.log("wasd", isLoggedIb);
+  }, [isLoggedIb]);
 
   const loginHandler = () => {
     setModalState(!modalState);
@@ -39,16 +43,18 @@ const Header = (props) => {
         </div>
 
         <div className={classes["container-right"]}>
-          {isLoggedIb && (
-            <React.Fragment>
+          <React.Fragment>
+            {isLoggedIb ?
               <button className={classes.button} onClick={loginHandler}>
-                <h2>Login</h2>
-              </button>
-              <button className={classes.button}>
-                <h2>Sign In</h2>
-              </button>
-            </React.Fragment>
-          )}
+                <h2>true1</h2>
+              </button> :
+              <button className={classes.button} onClick={loginHandler}>
+                <h2>false2</h2>
+              </button>}
+            <button className={classes.button}>
+              <h2>Sign In</h2>
+            </button>
+          </React.Fragment>
         </div>
       </header>
     </React.Fragment>
