@@ -1,0 +1,35 @@
+.header {
+    background-color: rgb(142, 44, 104);
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.container-right {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    gap: 15px;
+
+
+}
+
+.container-left {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}
