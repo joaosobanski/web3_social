@@ -44,13 +44,15 @@ const Header = (props) => {
 
         <div className={classes["container-right"]}>
           <React.Fragment>
-            {isLoggedIb ?
-              <button className={classes.button} onClick={loginHandler}>
-                <h2>true1</h2>
-              </button> :
-              <button className={classes.button} onClick={loginHandler}>
-                <h2>false2</h2>
-              </button>}
+            {
+              isLoggedIb ?
+                <button className={classes.button} onClick={loginHandler}>
+                  <h2>login</h2>
+                </button> :
+                <button className={classes.button} onClick={loginHandler}>
+                  <h2>logout</h2>
+                </button>
+            }
             <button className={classes.button}>
               <h2>Sign In</h2>
             </button>
