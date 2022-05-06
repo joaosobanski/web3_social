@@ -9,6 +9,7 @@ import { NavLink, Link } from "react-router-dom";
 const Header = (props) => {
   const { jwt, setJwt, isLoggedIb, setLoggedIn } = useAppContext();
   const [modalState, setModalState] = useState(false);
+  const [sigin, setSigin] = useState(false);
 
   useEffect(() => {
     console.log("wasd", isLoggedIb);
@@ -20,11 +21,17 @@ const Header = (props) => {
 
   const loginHandler = () => {
     setModalState(true);
+    setSigin(false);
+  };
+
+  const siginHandler = () => {
+    setSigin(true);
+    setModalState(true);
   };
 
   return (
     <React.Fragment>
-      {modalState && <Overlay closeHandler={handleClose} />}
+      {modalState && <Overlay closeHandler={handleClose} onSigin={sigin} />}
       <header className={classes.header}>
         <div className={classes["container-left"]}>
           <div className='link-container'>
@@ -51,7 +58,7 @@ const Header = (props) => {
             <button className={classes.button} onClick={loginHandler}>
               <h2>login</h2>
             </button>
-            <button className={classes.button} onClick={loginHandler}>
+            <button className={classes.button} onClick={siginHandler}>
               <h2>Sign In</h2>
             </button>
           </React.Fragment>

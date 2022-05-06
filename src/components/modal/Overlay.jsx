@@ -2,8 +2,9 @@ import React from "react";
 import ReactDom from "react-dom";
 import classes from "./Overlay.module.css";
 import LoginForm from "../Login/LoginForm";
+import SiginForm from "../Login/SiginForm";
 
-function Overlay({ closeHandler }) {
+function Overlay({ closeHandler, onSigin }) {
   const onClose = () => {
     closeHandler();
     console.log("closing");
@@ -13,7 +14,7 @@ function Overlay({ closeHandler }) {
     <React.Fragment>
       <div className={classes.backdrop} onClick={onClose} />
       <div className={classes["modal-container"]}>
-        <LoginForm />
+        {onSigin ? <SiginForm /> : <LoginForm />}
       </div>
     </React.Fragment>,
     document.getElementById("overlay")
