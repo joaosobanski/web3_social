@@ -15,10 +15,14 @@ function LoginForm({ closeHandler }) {
 
     setLoading(true);
     login(email, pass).then(e => {
-      setJwt(e.token);
-      setUserName(e.user.name);
-      setUserId(e.user._id);
-      setLoggedIn(true);
+      if (e.err) {
+        alert(e.err)
+      } else {
+        setJwt(e.token);
+        setUserName(e.user.name);
+        setUserId(e.user._id);
+        setLoggedIn(true);
+      }
     }).finally(() => {
       setLoading(false);
       closeHandler();

@@ -30,8 +30,8 @@ export async function login(email, pass) {
         }
       }
     );
-    console.log('res.data', res)
-    if (res.status === 200 || res.status === 400) {
+
+    if (res.status === 200) {
       return res.data;
     } else if (res.status === 400 && !res.data) {
       throw new Error("Bad request");

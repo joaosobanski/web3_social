@@ -9,7 +9,7 @@ export default function SiginForm() {
     signin("wasd@gmail.com", "wasd1234$#", "João", null).then((res) => {
       if (res.err) {
         alert(res.err);
-      } 
+      }
     });
   };
 
