@@ -1,7 +1,18 @@
 import React from "react";
+// import signin from "../../Controllers/User/User";
 import classes from "./LoginForm.module.css";
 
 export default function SiginForm() {
+  const onSignin = (event) => {
+    event.preventDefault();
+    // signin("wasd@gmail.com", "wasd1234$#", "João", null).then((res) => {
+    //   if (res.err) {
+    //     alert(res.err);
+    //   }
+    //   console.log(res);
+    // });
+  };
+
   return (
     <form className={classes.form}>
       <label htmlFor='email'>Email</label>
@@ -18,8 +29,10 @@ export default function SiginForm() {
         id='password-confir'
         placeholder='Confirm your password'
       />
-      <button type='submit'>Submit</button>
-      <button>Cancel</button>
+      <button type='submit' onClick={onSignin}>
+        Submit
+      </button>
+      <button onClick={onSignin}>Cancel</button>
     </form>
   );
 }

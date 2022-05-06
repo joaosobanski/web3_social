@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.background {
+  width: 100%;
+  flex-grow: 1;
+  background-image: url("https://wallpaperaccess.com/full/4578692.jpg");
+  background-size: cover;
+}
