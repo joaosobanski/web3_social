@@ -4,56 +4,54 @@ import classes from "./Header.module.css";
 import logo from "../../Assets/Images/reactLogo.svg";
 import "../../App.css";
 import Overlay from "../modal/Overlay";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = (props) => {
   const { jwt, setJwt, isLoggedIb, setLoggedIn } = useAppContext();
   const [modalState, setModalState] = useState(false);
 
-
   useEffect(() => {
     console.log("wasd", isLoggedIb);
   }, [isLoggedIb]);
 
-  const loginHandler = () => {
-    setModalState(!modalState);
+  const handleClose = () => {
+    setModalState(false);
   };
 
-  const handleFalse = () => {
-    setLoggedIn(false);
-    console.log("wasd");
+  const loginHandler = () => {
+    setModalState(true);
   };
 
   return (
     <React.Fragment>
-      {modalState && <Overlay closeHandler={loginHandler} />}
+      {modalState && <Overlay closeHandler={handleClose} />}
       <header className={classes.header}>
         <div className={classes["container-left"]}>
-          <button className={classes.button}>
-            <h1>
-              <img src={logo} className="App-logo" alt="logo" />
-            </h1>
-          </button>
+          <div className='link-container'>
+            <Link to='/'>
+              <img src={logo} className='App-logo' alt='logo' />
+            </Link>
+          </div>
 
-          <button className={classes.button} onClick={handleFalse}>
-            <h2>News</h2>
-          </button>
-          <button className={classes.button}>
-            <h2>Tranding</h2>
-          </button>
+          <div className='link-container'>
+            <NavLink activeClassName='link' to='/news'>
+              News
+            </NavLink>
+          </div>
+
+          <div className='link-container'>
+            <NavLink activeClassName='link' to='/trending'>
+              Tranding
+            </NavLink>
+          </div>
         </div>
 
         <div className={classes["container-right"]}>
           <React.Fragment>
-            {
-              isLoggedIb ?
-                <button className={classes.button} onClick={loginHandler}>
-                  <h2>login</h2>
-                </button> :
-                <button className={classes.button} onClick={loginHandler}>
-                  <h2>logout</h2>
-                </button>
-            }
-            <button className={classes.button}>
+            <button className={classes.button} onClick={loginHandler}>
+              <h2>login</h2>
+            </button>
+            <button className={classes.button} onClick={loginHandler}>
               <h2>Sign In</h2>
             </button>
           </React.Fragment>

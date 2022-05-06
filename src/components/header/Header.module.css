@@ -1,35 +1,61 @@
 .header {
-    background-color: rgb(142, 44, 104);
-    height: 50px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
+  background-color: rgb(142, 44, 104);
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
 }
 
 .container-right {
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-    gap: 15px;
-
-
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+  gap: 15px;
 }
 
 .container-left {
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-items: center;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
 }
 
 .button {
-    background-color: transparent;
-    border: none;
-    color: aliceblue;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+/* .link-container {
+  width: 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+} */
+
+a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+  color: azure;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+a::selection {
+  background: none;
+}
+
+.active {
+  color: aqua;
 }
