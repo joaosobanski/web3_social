@@ -1,8 +1,8 @@
 import React from "react";
 // import signin from "../../Controllers/User/User";
-import classes from "./LoginForm.module.css";
+import classes from "./SigInForm.module.css";
 
-export default function SiginForm() {
+export default function SiginForm({ signState }) {
   const onSignin = (event) => {
     event.preventDefault();
     // signin("wasd@gmail.com", "wasd1234$#", "João", null).then((res) => {
@@ -12,27 +12,34 @@ export default function SiginForm() {
     //   console.log(res);
     // });
   };
+  const changeModal = () => {
+    signState(false);
+  };
 
   return (
     <form className={classes.form}>
-      <label htmlFor='email'>Email</label>
-      <input type='text' id='email' placeholder='email' />
-      <label htmlFor='user-Name'>User Name</label>
-      <input type='text' id='user-Name' placeholder='email' />
-
-      <label htmlFor='password'>Password</label>
-      <input type='password' id='password' placeholder='Password' />
-
-      <label htmlFor='password-confir'>Confirm password</label>
-      <input
-        type='password'
-        id='password-confir'
-        placeholder='Confirm your password'
-      />
-      <button type='submit' onClick={onSignin}>
-        Submit
-      </button>
-      <button onClick={onSignin}>Cancel</button>
+      <h1> Create new account</h1>
+      <div className={classes["field-container"]}>
+        <div className={classes["input-container"]}>
+          <input className={classes.email} type='text' placeholder='Email' />
+        </div>
+        <div className={classes.names}>
+          <input type='text' placeholder='First name' />
+          <input type='text' placeholder='Last Name' />
+        </div>
+        <div className={classes.password}>
+          <input type='password' placeholder='New password' />
+          <input type='password' placeholder='Confirm password' />
+        </div>
+        <div className={classes.confirmation}>
+          <button className={classes.register} type='submit'>
+            Register
+          </button>
+          <span className={classes.login} onClick={changeModal}>
+            Already have an account? Login here!
+          </span>
+        </div>
+      </div>
     </form>
   );
 }

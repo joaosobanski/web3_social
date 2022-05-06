@@ -31,11 +31,17 @@ const Header = (props) => {
 
   return (
     <React.Fragment>
-      {modalState && <Overlay closeHandler={handleClose} onSigin={sigin} />}
+      {modalState && (
+        <Overlay
+          closeHandler={handleClose}
+          onSigin={sigin}
+          setSignIn={setSigin}
+        />
+      )}
       <header className={classes.header}>
         <div className={classes["container-left"]}>
           <div className='link-container'>
-            <Link to='/'>
+            <Link to='/home'>
               <img src={logo} className='App-logo' alt='logo' />
             </Link>
           </div>
