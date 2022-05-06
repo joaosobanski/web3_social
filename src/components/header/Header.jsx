@@ -12,7 +12,7 @@ const Header = (props) => {
   const [sigin, setSigin] = useState(false);
 
   useEffect(() => {
-    console.log("wasd", isLoggedIb);
+    
   }, [isLoggedIb]);
 
   const handleClose = () => {

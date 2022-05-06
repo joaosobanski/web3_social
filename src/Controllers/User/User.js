@@ -8,10 +8,11 @@ export async function signin(email, pass, name, birthDay) {
       name,
       birthDay,
     });
-    if (res.status === 201 || res.status === 404) {
+    if (res.status === 201) {
       return res.data;
-    } else if (res.status === 400) {
-      throw new Error("Bad request");
+    }
+    if (res.status === 200) {
+      return res.data;
     }
   } catch (error) {
     console.log(error);
@@ -29,6 +30,7 @@ export async function login(email, pass) {
         }
       }
     );
+    console.log('res.data', res)
     if (res.status === 200 || res.status === 400) {
       return res.data;
     } else if (res.status === 400 && !res.data) {

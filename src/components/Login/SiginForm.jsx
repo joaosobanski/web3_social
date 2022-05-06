@@ -1,16 +1,16 @@
 import React from "react";
+import { signin } from "../../Controllers/User/User";
 // import signin from "../../Controllers/User/User";
 import classes from "./LoginForm.module.css";
 
 export default function SiginForm() {
   const onSignin = (event) => {
     event.preventDefault();
-    // signin("wasd@gmail.com", "wasd1234$#", "João", null).then((res) => {
-    //   if (res.err) {
-    //     alert(res.err);
-    //   }
-    //   console.log(res);
-    // });
+    signin("wasd@gmail.com", "wasd1234$#", "João", null).then((res) => {
+      if (res.err) {
+        alert(res.err);
+      } 
+    });
   };
 
   return (
