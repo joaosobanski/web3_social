@@ -1,7 +1,9 @@
 import React from "react";
+import { useAppContext } from "../../store/app-contex";
 import classes from "./Home.module.css";
 
 export default function Home() {
+  const { userName } = useAppContext();
   return (
     <div className={classes.container}>
       <nav className={classes.panel}> Friends</nav>
@@ -10,6 +12,9 @@ export default function Home() {
           <h2>Feed</h2>
         </header>
         <p>
+          {
+            userName
+          }
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam
           accusantium recusandae quam vero animi nulla delectus ex deleniti?
           Maxime velit ab nostrum itaque dolores accusantium quia commodi

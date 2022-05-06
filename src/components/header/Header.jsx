@@ -4,16 +4,14 @@ import classes from "./Header.module.css";
 import logo from "../../Assets/Images/reactLogo.svg";
 import "../../App.css";
 import Overlay from "../modal/Overlay";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const { jwt, setJwt, isLoggedIb, setLoggedIn } = useAppContext();
   const [modalState, setModalState] = useState(false);
   const [sigin, setSigin] = useState(false);
 
-  useEffect(() => {
-    console.log("wasd", isLoggedIb);
-  }, [isLoggedIb]);
+  useEffect(() => {}, [isLoggedIb]);
 
   const handleClose = () => {
     setModalState(false);
@@ -47,15 +45,15 @@ const Header = (props) => {
           </div>
 
           <div className='link-container'>
-            <NavLink activeClassName='link' to='/news'>
+            <Link className='link' to='/news'>
               News
-            </NavLink>
+            </Link>
           </div>
 
           <div className='link-container'>
-            <NavLink activeClassName='link' to='/trending'>
+            <Link className='link' to='/trending'>
               Tranding
-            </NavLink>
+            </Link>
           </div>
         </div>
 
