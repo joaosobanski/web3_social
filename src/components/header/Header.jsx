@@ -41,15 +41,15 @@ const Header = (props) => {
           </div>
 
           <div className='link-container'>
-            <NavLink activeClassName='link' to='/news'>
+            <Link className='link' to='/news'>
               News
-            </NavLink>
+            </Link>
           </div>
 
           <div className='link-container'>
-            <NavLink activeClassName='link' to='/trending'>
+            <Link className='link' to='/trending'>
               Tranding
-            </NavLink>
+            </Link>
           </div>
         </div>
 

@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRoutes } from "react-router-dom";
+import { login } from "../../Controllers/User/User";
 import { useAppContext } from "../../store/app-contex";
 import classes from "./LoginForm.module.css";
 
-function LoginForm(props) {
-  const { isLoggedIb, setLoggedIn } = useAppContext();
+function LoginForm({ closeHandler }) {
+  const { setJwt, setUserName, setUserId, setLoggedIn } = useAppContext();
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    setLoggedIn(true);
+
+    setLoading(true);
+    login(email, pass).then(e => {
+      setJwt(e.token);
+      setUserName(e.user.name);
+      setUserId(e.user._id);
+      setLoggedIn(true);
+    }).finally(() => {
+      setLoading(false);
+      closeHandler();
+    })
+
   };
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <label htmlFor='email'>Email</label>
-      <input type='text' id='email' placeholder='email' />
+      <input type='text' id='email' placeholder='email' onChange={e => setEmail(e.target.value)} />
       <label htmlFor='password'>Password</label>
-      <input type='password' id='password' placeholder='password' />
+      <input type='password' id='password' placeholder='password' onChange={e => setPass(e.target.value)} />
       <button type='submit'>submit</button>
     </form>
   );

@@ -6,6 +6,7 @@
 
 .background {
   width: 100%;
+  color: beige;
   flex-grow: 1;
   background-image: url("https://wallpaperaccess.com/full/4578692.jpg");
   background-size: cover;

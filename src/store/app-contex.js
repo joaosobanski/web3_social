@@ -5,7 +5,7 @@ const Context = createContext();
 export const AppContext = ({ children }) => {
   const [jwt, setJwt] = useState("");
   const [userId, setUserId] = useState("");
-  const [useName, setUserName] = useState("");
+  const [userName, setUserName] = useState("");
   const [isLoggedIb, setLoggedIn] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ export const AppContext = ({ children }) => {
         setJwt,
         userId,
         setUserId,
-        useName,
+        userName,
         setUserName,
         isLoggedIb,
         setLoggedIn,
@@ -33,7 +33,7 @@ export const useAppContext = () => {
     setJwt,
     userId,
     setUserId,
-    useName,
+    userName,
     setUserName,
     isLoggedIb,
     setLoggedIn,
@@ -43,7 +43,7 @@ export const useAppContext = () => {
     setJwt,
     userId,
     setUserId,
-    useName,
+    userName,
     setUserName,
     isLoggedIb,
     setLoggedIn,

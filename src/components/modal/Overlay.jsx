@@ -14,7 +14,7 @@ function Overlay({ closeHandler, onSigin }) {
     <React.Fragment>
       <div className={classes.backdrop} onClick={onClose} />
       <div className={classes["modal-container"]}>
-        {onSigin ? <SiginForm /> : <LoginForm />}
+        {onSigin ? <SiginForm closeHandler={closeHandler} /> : <LoginForm closeHandler={closeHandler} />}
       </div>
     </React.Fragment>,
     document.getElementById("overlay")
